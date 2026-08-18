@@ -1,0 +1,7 @@
+{
+  "name": "heartbit",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

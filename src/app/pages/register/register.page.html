@@ -1,0 +1,102 @@
+<ion-content
+  class="register-content"
+  [fullscreen]="true"
+>
+  <main class="heartbit-screen register-screen">
+
+    <button
+      class="register-back"
+      type="button"
+      (click)="volver()"
+      aria-label="Volver"
+    >
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+
+    <section class="register-copy">
+      <p>Crea tu cuenta.</p>
+      <p>
+        Cuida tus <strong>latidos.</strong>
+      </p>
+    </section>
+
+    <img
+      class="register-logo"
+      src="assets/heartbit/login-logo.png"
+      alt="Heart Bit"
+    />
+
+    <form
+      class="register-form"
+      (ngSubmit)="registrar()"
+    >
+
+      <input
+        type="text"
+        name="nombre"
+        [(ngModel)]="nombre"
+        placeholder="Nombre"
+        autocomplete="name"
+        aria-label="Nombre"
+      />
+
+      <input
+        type="email"
+        name="correo"
+        [(ngModel)]="correo"
+        placeholder="Correo electrónico"
+        autocomplete="email"
+        aria-label="Correo electrónico"
+      />
+
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Contraseña"
+        autocomplete="new-password"
+        aria-label="Contraseña"
+      />
+
+      <input
+        type="password"
+        name="confirmarPassword"
+        [(ngModel)]="confirmarPassword"
+        placeholder="Confirmar contraseña"
+        autocomplete="new-password"
+        aria-label="Confirmar contraseña"
+      />
+
+      <p
+        class="register-error"
+        [class.visible]="mostrarError"
+      >
+        Completa todos los campos
+      </p>
+
+      <button
+        class="register-submit"
+        type="submit"
+        aria-label="Crear cuenta"
+        [disabled]="cargando"
+      >
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </button>
+
+    </form>
+
+    <button
+      class="login-link"
+      type="button"
+      (click)="volver()"
+    >
+      ¿Ya tienes cuenta? Inicia sesión
+    </button>
+
+    <div class="page-indicator">
+      <span class="indicator-long"></span>
+      <span class="indicator-short"></span>
+    </div>
+
+  </main>
+</ion-content>

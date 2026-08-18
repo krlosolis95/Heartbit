@@ -1,0 +1,359 @@
+<ion-content
+  class="diagnostic-content"
+  [fullscreen]="true"
+>
+
+  <main class="heartbit-screen diagnostic-screen">
+
+    <header class="diagnostic-header">
+
+      <button
+        class="back-button"
+        type="button"
+        (click)="volver()"
+        aria-label="Volver"
+      >
+        <ion-icon
+          name="chevron-back-outline"
+        >
+        </ion-icon>
+      </button>
+
+      <div class="header-actions">
+
+        <button
+          type="button"
+          (click)="crearReporte()"
+          aria-label="Crear reporte"
+        >
+          <ion-icon
+            name="document-text"
+          >
+          </ion-icon>
+        </button>
+
+        <button
+          type="button"
+          (click)="compartir()"
+          aria-label="Compartir"
+        >
+          <ion-icon
+            name="share-outline"
+          >
+          </ion-icon>
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <h1>Diagnóstico.</h1>
+
+
+    <!-- LATIDOS -->
+
+    <section class="heartbeat-card">
+
+      <div class="card-title-row">
+
+        <span class="lime-circle">
+          <ion-icon name="pulse-outline"></ion-icon>
+        </span>
+
+        <div>
+
+          <strong>
+            Latidos
+          </strong>
+
+          <p class="sensor-status">
+
+            <span
+              class="sensor-dot"
+              [class.active]="bpm > 0"
+            >
+            </span>
+
+            {{
+              bpm > 0
+                ? 'Lectura en tiempo real'
+                : 'Esperando datos del sensor'
+            }}
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="bpm-row">
+
+        <strong>
+          {{ bpm }}
+        </strong>
+
+        <span>
+          bpm
+        </span>
+
+      </div>
+
+
+      <svg
+        class="heartbeat-graph"
+        viewBox="0 0 363 118"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+
+        <polyline
+          points="
+            0,40
+            33,40
+            47,31
+            53,40
+            64,20
+            70,52
+            78,31
+            88,40
+            147,40
+            160,31
+            166,47
+            174,17
+            180,55
+            190,32
+            201,40
+            258,40
+            271,30
+            278,40
+            286,18
+            290,49
+            298,39
+            363,39
+          "
+          fill="none"
+          stroke="#cfff5e"
+          stroke-width="3"
+          stroke-linejoin="miter"
+          stroke-linecap="square"
+        />
+
+        <polyline
+          points="
+            0,89
+            50,89
+            61,80
+            65,99
+            73,88
+            138,88
+            145,79
+            151,88
+            180,88
+            188,104
+            194,88
+            277,88
+            286,79
+            292,88
+            354,88
+            363,82
+          "
+          fill="none"
+          stroke="#cfff5e"
+          stroke-width="3"
+          stroke-linejoin="miter"
+          stroke-linecap="square"
+        />
+
+      </svg>
+
+
+      <div class="graph-focus">
+
+        <span class="focus-label">
+          {{ bpm }} bpm
+        </span>
+
+        <span class="focus-line"></span>
+
+      </div>
+
+    </section>
+
+
+    <!-- INTERVALO R-R -->
+
+    <section class="interval-card">
+
+      <div class="interval-top">
+
+        <span class="lime-circle">
+          <ion-icon name="pulse-outline"></ion-icon>
+        </span>
+
+        <div>
+
+          <div class="interval-value">
+
+            <strong>
+              {{ rrInterval }}
+            </strong>
+
+            <span>
+              ms
+            </span>
+
+          </div>
+
+          <p>
+            Intervalo R-R
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="interval-bars">
+
+        <div
+          *ngFor="let intervalo of ultimosIntervalos"
+        >
+
+          <span></span>
+
+          <small>
+            {{ intervalo }} ms
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CHEQUEO ACTUAL -->
+
+    <section class="last-check-card">
+
+      <div class="last-check-header">
+
+        <span class="lime-circle">
+          <ion-icon name="analytics-outline"></ion-icon>
+        </span>
+
+        <div>
+
+          <strong>
+            Chequeo actual
+          </strong>
+
+          <p>
+            {{
+              cantidadLecturas > 0
+                ? cantidadLecturas + ' lecturas recibidas'
+                : 'Esperando lecturas'
+            }}
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="check-metrics">
+
+        <div>
+
+          <span>
+            Promedio
+          </span>
+
+          <strong>
+            {{ promedioBpm }}
+            <small>bpm</small>
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            Máximo
+          </span>
+
+          <strong>
+            {{ maxBpm }}
+            <small>bpm</small>
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            Mínimo
+          </span>
+
+          <strong>
+            {{ minBpm }}
+            <small>bpm</small>
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RESULTADOS -->
+
+    <section class="result-card">
+
+      <span
+        class="status-dot"
+        [class.active]="cantidadLecturas > 0"
+      >
+      </span>
+
+      <span class="lime-circle result-icon">
+        <ion-icon name="hardware-chip-outline"></ion-icon>
+      </span>
+
+      <div class="result-copy">
+
+        <strong>
+          Resultados
+        </strong>
+
+
+        <h3 *ngIf="cantidadLecturas === 0">
+          Sin datos todavía
+        </h3>
+
+        <p *ngIf="cantidadLecturas === 0">
+          Esperando las primeras lecturas del dispositivo.
+        </p>
+
+
+        <h3 *ngIf="cantidadLecturas > 0">
+          Chequeo en curso
+        </h3>
+
+        <p *ngIf="cantidadLecturas > 0">
+          Promedio actual de {{ promedioBpm }} bpm
+          con {{ cantidadLecturas }} lecturas recibidas.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</ion-content>

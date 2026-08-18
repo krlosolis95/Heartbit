@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@import '@ionic/angular/css/core.css';
+@import '@ionic/angular/css/normalize.css';
+@import '@ionic/angular/css/structure.css';
+@import '@ionic/angular/css/typography.css';
+@import '@ionic/angular/css/display.css';
+@import '@ionic/angular/css/padding.css';
+@import '@ionic/angular/css/float-elements.css';
+@import '@ionic/angular/css/text-alignment.css';
+@import '@ionic/angular/css/text-transformation.css';
+@import '@ionic/angular/css/flex-utils.css';
+
+:root {
+  --heart-purple: #6663fd;
+  --heart-lime: #cfff5e;
+  --heart-cream: #fdf7e7;
+  --heart-dark: #2e2e2f;
+  --heart-white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+ion-app {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+ion-content::part(scroll) {
+  scrollbar-width: none;
+}
+
+ion-content::part(scroll)::-webkit-scrollbar {
+  display: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.heartbit-screen {
+  position: relative;
+  width: 100%;
+  max-width: 393px;
+  min-height: 852px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@media (min-width: 394px) {
+  ion-content::part(scroll) {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,96 @@
+.splash-content {
+  --background: var(--heart-purple);
+}
+
+.splash-screen {
+  background: var(--heart-purple);
+  color: white;
+}
+
+.splash-copy {
+  position: absolute;
+  top: 96px;
+  left: 50px;
+  z-index: 2;
+}
+
+.splash-copy p {
+  margin: 0;
+  color: white;
+  font-size: 31px;
+  line-height: 1.52;
+  font-weight: 300;
+  letter-spacing: -0.7px;
+}
+
+.splash-copy strong {
+  color: var(--heart-lime);
+  font-weight: 800;
+}
+
+.splash-symbol {
+  position: absolute;
+  top: 296px;
+  left: 45px;
+  width: 303px;
+  height: 250px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.page-indicator {
+  position: absolute;
+  left: 49px;
+  bottom: 61px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.page-indicator span {
+  display: block;
+  height: 13px;
+  background: var(--heart-lime);
+  border-radius: 999px;
+}
+
+.indicator-long {
+  width: 86px;
+}
+
+.indicator-short {
+  width: 35px;
+}
+
+@media screen and (max-height: 760px) {
+  .splash-copy {
+    top: 70px;
+  }
+
+  .splash-symbol {
+    top: 250px;
+  }
+
+  .page-indicator {
+    bottom: 35px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .splash-copy {
+    left: 38px;
+  }
+
+  .splash-copy p {
+    font-size: 28px;
+  }
+
+  .splash-symbol {
+    left: 32px;
+    width: calc(100% - 64px);
+  }
+
+  .page-indicator {
+    left: 38px;
+  }
+}

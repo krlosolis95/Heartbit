@@ -1,0 +1,289 @@
+.register-content {
+  --background: var(--heart-purple);
+}
+
+.register-screen {
+  position: relative;
+
+  min-height: 100dvh;
+
+  background: var(--heart-purple);
+  color: var(--heart-white);
+}
+
+.register-back {
+  position: absolute;
+
+  top: 34px;
+  left: 28px;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  color: var(--heart-white);
+  background: transparent;
+
+  border: 0;
+  border-radius: 50%;
+
+  z-index: 10;
+}
+
+.register-back ion-icon {
+  font-size: 28px;
+}
+
+.register-copy {
+  position: absolute;
+
+  top: 90px;
+  left: 50px;
+}
+
+.register-copy p {
+  margin: 0;
+
+  color: var(--heart-white);
+
+  font-size: 30px;
+  line-height: 1.45;
+  font-weight: 300;
+  letter-spacing: -0.7px;
+}
+
+.register-copy strong {
+  color: var(--heart-lime);
+  font-weight: 700;
+}
+
+.register-logo {
+  position: absolute;
+
+  top: 205px;
+  left: 48px;
+
+  width: 287px;
+  height: 132px;
+
+  object-fit: contain;
+}
+
+.register-form {
+  position: absolute;
+  inset: 0;
+}
+
+.register-form input {
+  position: absolute;
+
+  left: 60px;
+
+  width: 268px;
+  height: 38px;
+
+  padding: 0 16px;
+
+  color: var(--heart-white);
+  background: transparent;
+
+  border: 2px solid var(--heart-lime);
+  border-radius: 999px;
+
+  outline: 0;
+
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.register-form input:nth-of-type(1) {
+  top: 390px;
+}
+
+.register-form input:nth-of-type(2) {
+  top: 446px;
+}
+
+.register-form input:nth-of-type(3) {
+  top: 502px;
+}
+
+.register-form input:nth-of-type(4) {
+  top: 558px;
+}
+
+.register-form input::placeholder {
+  color: var(--heart-white);
+  opacity: 1;
+}
+
+.register-form input:focus {
+  box-shadow:
+    0 0 0 3px rgba(207, 255, 94, 0.18);
+}
+
+.register-error {
+  position: absolute;
+
+  top: 610px;
+  left: 60px;
+
+  width: 268px;
+
+  margin: 0;
+
+  color: var(--heart-white);
+
+  font-size: 10px;
+  text-align: center;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 0.2s ease;
+}
+
+.register-error.visible {
+  opacity: 1;
+}
+
+.register-submit {
+  position: absolute;
+
+  right: 31px;
+  bottom: 45px;
+
+  width: 80px;
+  height: 49px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  color: #111111;
+  background: var(--heart-lime);
+
+  border: 0;
+  border-radius: 12px;
+}
+
+.register-submit ion-icon {
+  font-size: 34px;
+  --ionicon-stroke-width: 34px;
+}
+
+.register-submit:active {
+  transform: scale(0.96);
+}
+
+.register-submit:disabled {
+  opacity: 0.5;
+}
+
+.login-link {
+  position: absolute;
+
+  top: 638px;
+  left: 60px;
+
+  width: 268px;
+
+  padding: 0;
+
+  color: var(--heart-lime);
+  background: transparent;
+
+  border: 0;
+
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.login-link:active {
+  opacity: 0.7;
+}
+
+.page-indicator {
+  position: absolute;
+
+  left: 49px;
+  bottom: 62px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+.page-indicator span {
+  display: block;
+
+  height: 13px;
+
+  background: var(--heart-lime);
+
+  border-radius: 999px;
+}
+
+.indicator-long {
+  width: 35px;
+}
+
+.indicator-short {
+  width: 86px;
+}
+
+@media (max-width: 392px) {
+
+  .register-screen {
+    min-height: 100dvh;
+  }
+
+}
+
+@media (max-height: 820px) {
+
+  .register-screen {
+    min-height: 820px;
+  }
+
+  .register-copy {
+    top: 68px;
+  }
+
+  .register-logo {
+    top: 175px;
+  }
+
+  .register-form input:nth-of-type(1) {
+    top: 350px;
+  }
+
+  .register-form input:nth-of-type(2) {
+    top: 406px;
+  }
+
+  .register-form input:nth-of-type(3) {
+    top: 462px;
+  }
+
+  .register-form input:nth-of-type(4) {
+    top: 518px;
+  }
+
+  .register-error {
+    top: 568px;
+  }
+
+  .login-link {
+    top: 592px;
+  }
+
+}

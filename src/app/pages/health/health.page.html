@@ -1,0 +1,208 @@
+<ion-content
+  class="health-content"
+  [fullscreen]="true"
+>
+  <main class="heartbit-screen health-screen">
+
+    <!-- PERFIL DEL USUARIO -->
+    <header class="profile-header">
+
+      <div class="profile-avatar">
+        <ion-icon name="person"></ion-icon>
+      </div>
+
+      <div class="profile-copy">
+        <p>
+          Hola, {{ nombreUsuario }}
+        </p>
+
+        <p>
+          Bienvenido a tu portal
+        </p>
+      </div>
+
+      <button
+        class="notification-button"
+        type="button"
+        aria-label="Notificaciones"
+      >
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+
+    </header>
+
+
+    <!-- TÍTULO -->
+    <h1>
+      Salud del<br />
+      Corazón
+    </h1>
+
+
+    <!-- TARJETA PRINCIPAL -->
+    <section class="main-health-card">
+
+      <div class="main-card-copy">
+
+        <span class="white-circle">
+          <ion-icon name="heart-circle"></ion-icon>
+        </span>
+
+        <p class="card-label">
+          Salud
+        </p>
+
+
+        <!-- SENSOR CONECTADO -->
+        <p
+          class="diagnosis-copy"
+          *ngIf="conectado"
+        >
+          Sensor Heartbit conectado<br />
+          Lectura en tiempo real
+        </p>
+
+
+        <!-- SENSOR DESCONECTADO -->
+        <p
+          class="diagnosis-copy"
+          *ngIf="!conectado"
+        >
+          Sensor no conectado<br />
+          Esperando dispositivo
+        </p>
+
+
+        <button
+          type="button"
+          (click)="abrirDiagnostico()"
+        >
+          Diagnóstico
+        </button>
+
+      </div>
+
+
+      <!-- CORAZÓN ANIMADO -->
+      <div class="heart-animation-frame">
+
+        <img
+          class="heart-animation"
+          src="assets/heart-animation.gif"
+          alt="Corazón latiendo"
+        />
+
+      </div>
+
+    </section>
+
+
+    <!-- MÉTRICAS -->
+    <section class="metric-grid">
+
+
+      <!-- INTERVALO R-R -->
+      <article class="metric-card">
+
+        <span class="white-circle metric-circle">
+          <ion-icon name="timer-outline"></ion-icon>
+        </span>
+
+        <p>
+          Intervalo R-R
+        </p>
+
+        <strong>
+          {{ rrInterval }}
+          <span>ms</span>
+        </strong>
+
+      </article>
+
+
+      <!-- BPM -->
+      <article class="metric-card">
+
+        <span class="white-circle metric-circle">
+          <ion-icon name="pulse-outline"></ion-icon>
+        </span>
+
+        <p>
+          Ritmo del Corazón
+        </p>
+
+        <strong>
+          {{ bpm }}
+          <span>/ min</span>
+        </strong>
+
+      </article>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+    <section class="doctor-card">
+
+      <div class="doctor-header">
+
+
+        <!-- AVATAR -->
+        <div class="doctor-avatar">
+          <ion-icon name="person"></ion-icon>
+        </div>
+
+
+        <!-- INFORMACIÓN -->
+        <div>
+
+          <strong>
+            {{ nombreContacto }}
+          </strong>
+
+          <span>
+            {{ tipoContacto }}
+          </span>
+
+        </div>
+
+
+        <!-- LLAMAR -->
+        <button
+          class="call-button"
+          type="button"
+          (click)="llamarContacto()"
+          aria-label="Llamar al contacto"
+        >
+          <ion-icon name="call"></ion-icon>
+        </button>
+
+      </div>
+
+
+      <!-- MENSAJE -->
+      <div class="message-box">
+
+        <input
+          type="text"
+          [(ngModel)]="mensaje"
+          placeholder="Escribe un mensaje..."
+          aria-label="Mensaje"
+          (keyup.enter)="enviarMensaje()"
+        />
+
+
+        <button
+          type="button"
+          (click)="enviarMensaje()"
+          aria-label="Enviar mensaje"
+        >
+          <ion-icon name="paper-plane"></ion-icon>
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+</ion-content>

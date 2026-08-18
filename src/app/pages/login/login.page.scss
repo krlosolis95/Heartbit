@@ -1,0 +1,288 @@
+.login-content {
+  --background: var(--heart-purple);
+}
+
+.login-screen {
+  position: relative;
+  min-height: 100dvh;
+
+  background: var(--heart-purple);
+  color: var(--heart-white);
+}
+
+
+/* TEXTO PRINCIPAL */
+
+.login-copy {
+  position: absolute;
+
+  top: 93px;
+  left: 50px;
+}
+
+.login-copy p {
+  margin: 0;
+
+  color: var(--heart-white);
+
+  font-size: 30px;
+  line-height: 1.56;
+  font-weight: 300;
+  letter-spacing: -0.7px;
+}
+
+.login-copy strong {
+  color: var(--heart-lime);
+  font-weight: 700;
+}
+
+
+/* LOGO */
+
+.login-logo {
+  position: absolute;
+
+  top: 224px;
+  left: 48px;
+
+  width: 287px;
+  height: 132px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* FORMULARIO */
+
+.login-form {
+  position: absolute;
+  inset: 0;
+}
+
+.login-form input {
+  position: absolute;
+
+  left: 60px;
+
+  width: 268px;
+  height: 38px;
+
+  padding: 0 16px;
+
+  color: var(--heart-white);
+  background: transparent;
+
+  border: 2px solid var(--heart-lime);
+  border-radius: 999px;
+
+  outline: 0;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  box-sizing: border-box;
+}
+
+
+/* CORREO */
+
+.login-form input:first-of-type {
+  top: 427px;
+}
+
+
+/* CONTRASEÑA */
+
+.login-form input:nth-of-type(2) {
+  top: 495px;
+}
+
+.login-form input::placeholder {
+  color: var(--heart-white);
+  opacity: 1;
+}
+
+.login-form input:focus {
+  box-shadow:
+    0 0 0 3px rgba(207, 255, 94, 0.18);
+}
+
+
+/* ERROR */
+
+.login-error {
+  position: absolute;
+
+  top: 542px;
+  left: 60px;
+
+  width: 268px;
+
+  margin: 0;
+
+  color: var(--heart-white);
+
+  font-size: 10px;
+  text-align: center;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 0.2s ease;
+}
+
+.login-error.visible {
+  opacity: 1;
+}
+
+
+/* REGISTRO */
+
+.register-link {
+  position: absolute;
+
+  top: 550px;
+  left: 60px;
+
+  width: 268px;
+
+  padding: 0;
+
+  color: var(--heart-lime);
+  background: transparent;
+
+  border: 0;
+  outline: 0;
+
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.register-link:active {
+  opacity: 0.7;
+}
+
+
+/* BOTÓN LOGIN */
+
+.login-submit {
+  position: absolute;
+
+  right: 31px;
+  bottom: 45px;
+
+  width: 80px;
+  height: 49px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  color: #111111;
+  background: var(--heart-lime);
+
+  border: 0;
+  border-radius: 12px;
+
+  cursor: pointer;
+}
+
+.login-submit ion-icon {
+  font-size: 34px;
+  --ionicon-stroke-width: 34px;
+}
+
+.login-submit:active {
+  transform: scale(0.96);
+}
+
+.login-submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+
+/* INDICADOR INFERIOR */
+
+.page-indicator {
+  position: absolute;
+
+  left: 49px;
+  bottom: 62px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+.page-indicator span {
+  display: block;
+
+  height: 13px;
+
+  background: var(--heart-lime);
+
+  border-radius: 999px;
+}
+
+.indicator-long {
+  width: 86px;
+}
+
+.indicator-short {
+  width: 35px;
+}
+
+
+/* PANTALLAS MÓVILES ANGOSTAS */
+
+@media (max-width: 392px) {
+
+  .login-screen {
+    min-height: 100dvh;
+  }
+
+}
+
+
+/* PANTALLAS MÓVILES DE MENOR ALTURA */
+
+@media (max-height: 820px) {
+
+  .login-screen {
+    min-height: 820px;
+  }
+
+  .login-copy {
+    top: 73px;
+  }
+
+  .login-logo {
+    top: 203px;
+  }
+
+  .login-form input:first-of-type {
+    top: 397px;
+  }
+
+  .login-form input:nth-of-type(2) {
+    top: 465px;
+  }
+
+  .login-error {
+    top: 512px;
+  }
+
+  .register-link {
+    top: 520px;
+  }
+
+}

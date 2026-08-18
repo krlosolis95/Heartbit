@@ -1,0 +1,493 @@
+.health-content {
+  --background: var(--heart-cream);
+}
+
+
+.health-screen {
+  min-height: 852px;
+
+  padding: 59px 15px 20px;
+
+  color: var(--heart-dark);
+  background: var(--heart-cream);
+}
+
+
+/* PERFIL */
+
+.profile-header {
+  height: 58px;
+
+  display: grid;
+  grid-template-columns: 58px 1fr 58px;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0 8px;
+}
+
+
+.profile-avatar {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--heart-dark);
+  background: var(--heart-cream);
+
+  border-radius: 50%;
+}
+
+
+.profile-avatar ion-icon {
+  font-size: 24px;
+}
+
+
+.profile-copy p {
+  margin: 0;
+
+  color: var(--heart-dark);
+
+  font-size: 14px;
+  line-height: 1.48;
+  font-weight: 400;
+  letter-spacing: -0.25px;
+}
+
+
+.notification-button {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  color: white;
+  background: var(--heart-purple);
+
+  border: 0;
+  border-radius: 50%;
+}
+
+
+.notification-button ion-icon {
+  font-size: 23px;
+}
+
+
+/* TÍTULO */
+
+.health-screen h1 {
+  margin: 31px 0 24px 7px;
+
+  color: var(--heart-dark);
+
+  font-size: 31px;
+  line-height: 1.45;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+
+/* TARJETA PRINCIPAL */
+
+.main-health-card {
+  height: 234px;
+
+  display: grid;
+  grid-template-columns: 166px 162px;
+  justify-content: space-between;
+
+  padding: 14px 11px 14px 17px;
+
+  color: white;
+  background: var(--heart-purple);
+
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+
+.main-card-copy {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+.white-circle {
+  width: 57px;
+  height: 57px;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 auto;
+
+  color: #000000;
+  background: var(--heart-cream);
+
+  border-radius: 50%;
+}
+
+
+.main-card-copy .white-circle {
+  margin: 8px 0 17px;
+}
+
+
+.white-circle ion-icon {
+  font-size: 26px;
+}
+
+
+.card-label {
+  margin: 0;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.diagnosis-copy {
+  margin: 9px 0 0;
+
+  color: white;
+
+  font-size: 14px;
+  line-height: 1.22;
+  font-weight: 400;
+}
+
+
+.main-card-copy button {
+  min-width: 104px;
+  height: 37px;
+
+  margin-top: auto;
+  padding: 0 14px;
+
+  color: #222222;
+  background: var(--heart-lime);
+
+  border: 0;
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* CORAZÓN ANIMADO */
+
+.heart-animation-frame {
+  width: 162px;
+  height: 206px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border-radius: 23px;
+}
+
+
+.heart-animation {
+  width: 94%;
+  height: 94%;
+
+  display: block;
+
+  object-fit: contain;
+
+  transform-origin: center;
+
+  animation: heartbeat 1.35s ease-in-out infinite;
+}
+
+
+/* ANIMACIÓN DE LATIDO */
+
+@keyframes heartbeat {
+
+  0% {
+    transform: scale(1);
+  }
+
+  12% {
+    transform: scale(0.72);
+  }
+
+  22% {
+    transform: scale(1);
+  }
+
+  32% {
+    transform: scale(0.82);
+  }
+
+  42% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+
+/* MÉTRICAS */
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 7px;
+
+  margin-top: 9px;
+}
+
+
+.metric-card {
+  height: 165px;
+
+  padding: 18px 17px;
+
+  color: white;
+  background: var(--heart-purple);
+
+  border-radius: 24px;
+}
+
+
+.metric-circle {
+  margin-bottom: 27px;
+}
+
+
+.metric-card p {
+  margin: 0 0 7px;
+
+  color: white;
+
+  font-size: 12.5px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+.metric-card strong {
+  display: block;
+
+  color: white;
+
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 300;
+
+  white-space: nowrap;
+}
+
+
+.metric-card strong span {
+  font-size: 19px;
+  font-weight: 300;
+}
+
+
+/* CARDIÓLOGO */
+
+.doctor-card {
+  height: 156px;
+
+  margin-top: 9px;
+  padding: 11px 12px 13px;
+
+  color: white;
+  background: var(--heart-purple);
+
+  border-radius: 24px;
+}
+
+
+.doctor-header {
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  align-items: center;
+
+  gap: 11px;
+}
+
+
+.doctor-avatar {
+  width: 56px;
+  height: 56px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--heart-purple);
+  background: var(--heart-cream);
+
+  border-radius: 50%;
+}
+
+
+.doctor-avatar ion-icon {
+  font-size: 24px;
+}
+
+
+.doctor-header strong,
+.doctor-header span {
+  display: block;
+
+  color: white;
+}
+
+
+.doctor-header strong {
+  font-size: 13px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+
+.doctor-header span {
+  margin-top: 3px;
+
+  font-size: 13px;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+
+.call-button {
+  width: 56px;
+  height: 56px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  color: var(--heart-dark);
+  background: var(--heart-cream);
+
+  border: 0;
+  border-radius: 50%;
+}
+
+
+.call-button ion-icon {
+  font-size: 29px;
+}
+
+
+/* MENSAJE */
+
+.message-box {
+  height: 64px;
+
+  display: grid;
+  grid-template-columns: 1fr 47px;
+  align-items: center;
+
+  margin-top: 11px;
+  padding: 0 8px 0 21px;
+
+  background: var(--heart-cream);
+
+  border-radius: 25px;
+}
+
+
+.message-box input {
+  width: 100%;
+  min-width: 0;
+
+  color: var(--heart-dark);
+  background: transparent;
+
+  border: 0;
+  outline: 0;
+
+  font-size: 13px;
+}
+
+
+.message-box input::placeholder {
+  color: var(--heart-dark);
+  opacity: 1;
+}
+
+
+.message-box button {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  color: var(--heart-dark);
+  background: transparent;
+
+  border: 0;
+  border-radius: 50%;
+}
+
+
+.message-box ion-icon {
+  font-size: 31px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 370px) {
+
+  .health-screen {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+
+  .main-health-card {
+    grid-template-columns: 1fr 146px;
+  }
+
+
+  .heart-animation-frame {
+    width: 146px;
+  }
+
+
+  .metric-card {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+
+  .metric-card p {
+    font-size: 11px;
+  }
+
+}

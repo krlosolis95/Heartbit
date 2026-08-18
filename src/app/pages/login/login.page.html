@@ -1,0 +1,76 @@
+<ion-content
+  class="login-content"
+  [fullscreen]="true"
+>
+  <main class="heartbit-screen login-screen">
+
+    <section class="login-copy">
+      <p>En que Inviertes</p>
+      <p>
+        tus <strong>latidos.</strong>
+      </p>
+    </section>
+
+    <img
+      class="login-logo"
+      src="/assets/logo-heartbit.png"
+      alt="Heartbit"
+    />
+
+    <form
+      class="login-form"
+      (ngSubmit)="iniciarSesion()"
+    >
+
+      <input
+        type="email"
+        name="usuario"
+        [(ngModel)]="usuario"
+        placeholder="Correo electrónico"
+        autocomplete="email"
+        aria-label="Correo electrónico"
+      />
+
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Contraseña"
+        autocomplete="current-password"
+        aria-label="Contraseña"
+      />
+
+      <p
+        class="login-error"
+        [class.visible]="mostrarError"
+      >
+        Escribe correo y contraseña
+      </p>
+
+      <button
+        class="login-submit"
+        type="submit"
+        aria-label="Iniciar sesión"
+        [disabled]="cargando"
+      >
+        <ion-icon name="log-in-outline"></ion-icon>
+      </button>
+
+    </form>
+
+    <button
+      class="register-link"
+      type="button"
+      (click)="irRegistro()"
+      aria-label="Ir a registro"
+    >
+      ¿No tienes cuenta? Regístrate
+    </button>
+
+    <div class="page-indicator">
+      <span class="indicator-long"></span>
+      <span class="indicator-short"></span>
+    </div>
+
+  </main>
+</ion-content>
