@@ -49,6 +49,11 @@ export class DiagnosticoPage
 
   cantidadLecturas: number = 0;
 
+  // ESTADO PARA SABER SI ESTÁ CONECTADO
+  conectado : boolean = false;
+
+  private conectadoSubscription?:Subscription;
+
 
   private bpmSubscription?: Subscription;
 
@@ -62,15 +67,18 @@ export class DiagnosticoPage
 
   ngOnInit(): void {
 
-    this.bpmSubscription =
-      this.bluetoothService.bpm$
-        .subscribe((bpm: number) => {
+  this.bpmSubscription =
+    this.bluetoothService.bpm$
+      .subscribe((bpm: number) => {
+        this.procesarLectura(bpm);
+      });
 
-          this.procesarLectura(bpm);
-
-        });
-
-  }
+  this.conectadoSubscription =
+    this.bluetoothService.conectado$
+      .subscribe((estado: boolean) => {
+        this.conectado = estado;
+      });
+}
 
 
   private procesarLectura(
@@ -238,12 +246,44 @@ export class DiagnosticoPage
 
   }
 
+  async conectarSensor(): Promise<void> {
+
+  try {
+
+    await this.bluetoothService.buscarYConectar();
+
+    await this.mostrarAviso(
+      'Sensor conectado correctamente'
+    );
+
+  } catch (error) {
+
+    console.error(error);
+
+    await this.mostrarAviso(
+      'No fue posible conectar el sensor'
+    );
+  }
+}
+
+
+async desconectarSensor(): Promise<void> {
+
+  await this.bluetoothService.desconectar();
+
+  await this.mostrarAviso(
+    'Sensor desconectado'
+  );
+}
+
 
   ngOnDestroy(): void {
 
-    this.bpmSubscription
-      ?.unsubscribe();
+  this.bpmSubscription
+    ?.unsubscribe();
 
-  }
+  this.conectadoSubscription
+    ?.unsubscribe();
+}
 
 }

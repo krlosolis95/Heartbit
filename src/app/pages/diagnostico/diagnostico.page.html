@@ -50,6 +50,28 @@
 
     <h1>Diagnóstico.</h1>
 
+    <!-- CONECTAR Y DESCONECTAR SENSOR -->
+
+<button
+  *ngIf="!conectado"
+  type="button"
+  class="connect-button"
+  (click)="conectarSensor()"
+>
+  <ion-icon name="bluetooth-outline"></ion-icon>
+  Conectar sensor
+</button>
+
+<button
+  *ngIf="conectado"
+  type="button"
+  class="connect-button connected"
+  (click)="desconectarSensor()"
+>
+  <ion-icon name="bluetooth"></ion-icon>
+  Sensor conectado
+</button>
+
 
     <!-- LATIDOS -->
 
