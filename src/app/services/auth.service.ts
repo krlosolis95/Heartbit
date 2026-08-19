@@ -15,8 +15,15 @@ import {
 } from 'firebase/auth';
 
 import {
+  getDatabase,
+  ref,
+  set
+} from 'firebase/database';
+
+import {
   environment
 } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -31,13 +38,20 @@ export class AuthService {
   private auth: Auth =
     getAuth(this.app);
 
+  private database =
+    getDatabase(this.app);
+
+
   constructor() {}
+
 
   async registrar(
     nombre: string,
     email: string,
     password: string
   ): Promise<UserCredential> {
+
+    // 1. CREAR USUARIO EN FIREBASE AUTH
 
     const resultado =
       await createUserWithEmailAndPassword(
@@ -46,6 +60,9 @@ export class AuthService {
         password
       );
 
+
+    // 2. GUARDAR NOMBRE EN FIREBASE AUTH
+
     await updateProfile(
       resultado.user,
       {
@@ -53,9 +70,27 @@ export class AuthService {
       }
     );
 
+
+    // 3. CREAR PERFIL EN REALTIME DATABASE
+
+    await set(
+      ref(
+        this.database,
+        `users/${resultado.user.uid}/perfil`
+      ),
+      {
+        nombre: nombre,
+        email: email,
+        fechaRegistro:
+          new Date().toISOString()
+      }
+    );
+
+
     return resultado;
 
   }
+
 
   async iniciarSesion(
     email: string,
@@ -70,6 +105,7 @@ export class AuthService {
 
   }
 
+
   async cerrarSesion(): Promise<void> {
 
     await signOut(
@@ -77,6 +113,7 @@ export class AuthService {
     );
 
   }
+
 
   getUsuarioActual() {
 
