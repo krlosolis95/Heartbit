@@ -52,6 +52,24 @@
           Salud
         </p>
 
+        <button
+          *ngIf="!conectado"
+          type="button"
+          (click)="conectarSensor()"
+        >
+          <ion-icon name="bluetooth-outline"></ion-icon>
+          Conectar Heartbit
+        </button>
+
+        <button
+          *ngIf="conectado"
+          type="button"
+          (click)="desconectarSensor()"
+        >
+          <ion-icon name="bluetooth"></ion-icon>
+          Desconectar
+        </button>
+
 
         <!-- SENSOR CONECTADO -->
         <p

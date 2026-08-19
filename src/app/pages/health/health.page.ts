@@ -175,6 +175,42 @@ export class HealthPage
   }
 
 
+  async conectarSensor(): Promise<void> {
+
+  try {
+
+    await this.bluetoothService.buscarYConectar();
+
+    console.log('Sensor Heartbit conectado');
+
+  } catch (error) {
+
+    console.error(
+      'No se pudo conectar con Heartbit:',
+      error
+    );
+  }
+}
+
+
+async desconectarSensor(): Promise<void> {
+
+  try {
+
+    await this.bluetoothService.desconectar();
+
+    console.log('Sensor desconectado');
+
+  } catch (error) {
+
+    console.error(
+      'Error al desconectar:',
+      error
+    );
+  }
+}
+
+
   /*
    * ABRIR DIAGNÓSTICO
    */
